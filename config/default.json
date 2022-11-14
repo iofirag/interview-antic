@@ -17,7 +17,7 @@
     "probe": {},
     "log": {
         "fields": {
-            "flow": "example-service",
+            "flow": "word-service",
             "project": "data-factory",
             "env": "local"
         },

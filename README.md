@@ -1,5 +1,5 @@
-example service:
-config, probe, server, Dockerfile, logger, eslint, dependency-injection, nodemon, launch with F5, swagger-ui, yarn, prettier,
+service contains:
+config, probe, server, logger, eslint, dependency-injection, nodemon, launch with F5, swagger-ui, yarn, prettier,
 
 ## RUN:
     $ yarn run start  
