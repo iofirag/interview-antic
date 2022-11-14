@@ -1,0 +1,22 @@
+{
+    "source": "local value",
+    "server": {
+        "port": "3001"
+    },
+    "storage": {},
+    "tracer": {},
+    "probe": {},
+    "log": {
+        "fields": {
+            "flow": "example-service",
+            "project": "data-factory",
+            "env": "local"
+        },
+        "connection": {
+            "host": "localhost",
+            "port": "3001"
+        },
+        "level": "debug"
+    },
+    "http": {}
+}

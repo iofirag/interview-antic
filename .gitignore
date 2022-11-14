@@ -1,0 +1,12 @@
+.idea/
+dist/
+*.log
+*.rar
+.volume/etcd/
+**/node_modules
+result.xml
+xunit.xml
+sh.exe.stackdump
+bush.exe.stackdump
+config/production.json
+/uploads

@@ -1,0 +1,105 @@
+General Instructions
+
+Please make sure to ask or write down whatever assumptions you make when you write the code.
+
+Typescript is the preferred language for submission (If you have any issue with TS and prefer some other language please check with us first). 
+
+Submission is most comfortable using a private github repo. Please add the following github users as collaborators:
+
+kobibarhanin
+
+adieado
+
+
+Challenge Description
+
+In this code challenge you are required to write an API with 2 endpoints:
+
+ A word-counter endpoint
+
+ A word-statistics' endpoint
+
+
+The word-counter endpoint:
+
+Receives a text input and counts the number of appearances for each word in the input.
+
+The endpoint should not return data (but you may return success status, etc).
+
+The endpoint should be able to accept the input in 3 ways:
+
+A simple string sent in the request.
+
+A file path (the contents of the file will be used as input).
+
+A URL (the data returned from the URL will be used as input).
+
+The input may be very large (up to tens of gigabytes).
+
+The results (the number of appearances of each word) should be persisted between runs, to be used by the 'word statistics' service. (ie - if we shut down the server and restart it, results should be saved).
+
+
+The word-statistics endpoint:
+
+Receives a word and returns the number of times the word appeared so far (in all previous calls).
+
+
+Examples
+
+
+Word counter endpoint:
+
+Input string: "Hi! My name is (what?), my name is (who?), my name is Slim Shady"
+
+Output: (ok)
+
+
+Word statistics endpoint:
+
+input: "my"
+
+output: 3
+
+input: "what"
+
+output: 1
+
+input: "hello"
+
+output: 0
+
+
+Notes:
+
+Add a short 'readme' with How to install and run / API documentation / request examples.
+
+Communicate any assumptions you make regarding the input.
+
+We'll be testing your server with large urls / input files (> 1GB), so performance should be reasonable.
+
+Try to use a low footprint (i.e. no database needed for this).
+
+Be case insensitive (i.e. "Be" and "be" are the same word).
+
+Mid word dashes, commas and digits could be cleaned up (i.e. me2 could count as me)
+
+Lastly - please be sure to take into account all the aspects of high standard coding:
+
+Code modeling and readability.
+
+OOP.
+
+Runtime efficiency.
+
+Data consistency and integrity.
+
+Error handling.
+
+Edge cases handling.
+
+Anything you believe to be important (we are a startup, with us it’s mostly about making your own tasks live up to your own standards)
+
+
+Good luck!
+
+Adi and Kobi
