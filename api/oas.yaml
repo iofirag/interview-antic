@@ -17,32 +17,7 @@ paths:
       operationId: 'wordCounter'
       description: "counting words"
       requestBody:
-        content:
-
-          text/plain:
-            schema:
-              type: string
-
-          # multipart/form-data:
-          #   schema:
-          #     type: string
-          #     format: binary
-
-          multipart/form-data:
-            schema:
-              type: object
-              properties:
-                # 'file' will be the field name in this multipart request
-                file:
-                  type: string
-                  format: binary
-
-          # image/png:
-          #   schema:
-          #     type: string
-          #     format: binary
-          
-        # $ref: '#/components/requestBodies/WordCounterBody'
+        $ref: '#/components/requestBodies/WordCounterBody'
       responses:
         200:
           $ref: '#/components/responses/SuccessResponse'
@@ -63,7 +38,6 @@ paths:
             type: string
           required: true
           description: word for checking it's count
-          
       responses:
         200:
           $ref: '#/components/responses/SuccessResponse'
@@ -77,7 +51,6 @@ paths:
     get:
       operationId: 'allWordStatistics'
       description: "words statistics"
-      
       responses:
         200:
           $ref: '#/components/responses/SuccessResponse'
@@ -88,12 +61,22 @@ paths:
 
 
 components:
-  # requestBodies:
-  #   WordCounterBody:
-  #     content:
-  #       text/plain:
-  #         schema:
-  #           $ref: '#/components/schemas/StringBodySchema'
+
+  requestBodies:
+    WordCounterBody:
+      content:
+        text/plain:
+            schema:
+              type: string
+
+        multipart/form-data:
+          schema:
+            type: object
+            properties:
+              # 'file' will be the field name in this multipart request
+              file:
+                type: string
+                format: binary
             
   responses:
     SuccessResponse:

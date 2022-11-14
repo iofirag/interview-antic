@@ -3,10 +3,9 @@ const https = require('https');
 const fs = require('fs');
 
 module.exports = class WordLogic {
-    constructor(wordData, logger, tracer, serviceData) {
+    constructor(wordData, logger, serviceData) {
         this._archive = wordData;
         this._logger = logger;
-        this._tracer = tracer;
         this._serviceData = serviceData;
     }
 

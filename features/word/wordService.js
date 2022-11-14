@@ -1,17 +1,14 @@
-const opentracing = require('opentracing');
-
 module.exports = class WordService {
-    constructor(wordLogic, logger, tracer, serviceData) {
+    constructor(wordLogic, logger, serviceData) {
         this._handler = wordLogic;
         this._logger = logger;
-        this._tracer = tracer;
         this._serviceData = serviceData;
     }
 
     async wordCounter(req, res) {
         let result;
         try {
-            const {file, body} = req;
+            const { file, body } = req;
             if (file) {
                 // Get data from file
                 this._handler.handleWordCounterByFilePath(file.path);

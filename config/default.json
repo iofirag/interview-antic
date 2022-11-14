@@ -1,10 +1,19 @@
 {
-    "source": "local value",
     "server": {
         "port": "3001"
     },
+    "oas": {
+        "oasFile": "./api/oas.yaml",
+        "middleware": {
+            "validator": {
+                "strict": true
+            },
+            "router": {
+                "controllers": "./controllers"
+            }
+        }
+    },
     "storage": {},
-    "tracer": {},
     "probe": {},
     "log": {
         "fields": {
@@ -17,6 +26,5 @@
             "port": "3001"
         },
         "level": "debug"
-    },
-    "http": {}
+    }
 }

@@ -3,50 +3,33 @@ const fs = require('fs');
 const yaml = require('js-yaml');
 const morgan = require('morgan');
 const cors = require('cors');
-const cookieParser = require('cookie-parser');
 const oasTools = require('@oas-tools/core');
 const multer = require('multer');
 const container = require('./containerConfig');
-
-// const upload = multer({ dest: 'uploads/' });
 
 const app = express();
 
 (async () => {
     const serviceData = container.resolve('serviceData');
     const serverConfig = container.resolve('serverConfig');
+    const oasConfig = container.resolve('oasConfig');
     const serverPort = serverConfig ? serverConfig.port : 3000;
     const logger = container.resolve('logger');
     const probe = container.resolve('probe');
-    const source = container.resolve('source');
     const oasFile = yaml.load(fs.readFileSync('api/oas.yaml', 'utf8'));
 
     logger.log('info', serviceData);
-    logger.log('info', source);
 
     try {
         app.use(cors());
-        app.use(cookieParser());
         app.use(morgan('combined'));
         app.use(express.text());
         app.use(express.urlencoded({ extended: true }));
         app.use(multer({ dest: './uploads/' }).single('file'));
         app.get('/api-docs', (req, res) => res.json(oasFile));
-        // app.post('/api/v1/word-counter', upload.single('file'), (req, res, next) => next());
 
-        const config = {
-            oasFile: './api/oas.yaml',
-            // useAnnotations: true,
-            middleware: {
-                validator: {
-                    strict: true,
-                },
-                router: {
-                    controllers: './controllers',
-                },
-            },
-        };
-        await oasTools.initialize(app, config);
+        // Init router by OAS-Tools
+        await oasTools.initialize(app, oasConfig);
         // Start the server
         await probe.start(app, serverPort);
         probe.readyFlag = true;
